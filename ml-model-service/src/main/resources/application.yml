@@ -1,0 +1,36 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ml-model-service
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+app:
+  models:
+    dir: ${MODEL_DIR:models}
+    logistic-regression-file: logistic_regression.bin
+    random-forest-file: random_forest.bin
+    metadata-file: model_metadata.json
+  ensemble:
+    weight-lr: 0.35
+    weight-rf: 0.65
+  business:
+    fallback-weights:
+      debtToIncomeRatio: 0.25
+      incomeConsistencyScore: 0.22
+      spendingVolatilityIndex: 0.18
+      savingsRate: 0.15
+      paymentRegularity: 0.20
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+  endpoint:
+    health:
+      show-details: always

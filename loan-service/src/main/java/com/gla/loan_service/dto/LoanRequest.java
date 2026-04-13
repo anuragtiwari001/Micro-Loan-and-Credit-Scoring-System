@@ -9,4 +9,14 @@ public class LoanRequest {
     private Integer tenure;
     private String loanType;
     private String loanPurposeDescription;
+
+    // ✅ BANK ACCOUNT INFO
+    private String bankName;
+    private String accountNumber;
+    private String accountType;
+    private String ifscCode;
+
+    // ✅ FINANCIAL INFO
+    private Double monthlyIncome;
+    private Double requestedEMI;
 }

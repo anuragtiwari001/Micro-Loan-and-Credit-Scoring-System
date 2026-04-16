@@ -23,7 +23,6 @@
         <module>data-service</module>
         <module>api-gateway</module>
         <module>common</module>
-        <module>credit-scoring-service</module>
         <module>loan-service</module>
         <module>document-service</module>
     </modules>

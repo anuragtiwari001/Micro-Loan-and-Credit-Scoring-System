@@ -1,6 +1,7 @@
 package com.gla.document_service.config;
 
 import com.cloudinary.Cloudinary;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,12 +10,22 @@ import java.util.Map;
 @Configuration
 public class CloudinaryConfig {
 
+    // ✅ Values come from application.properties — not hardcoded
+    @Value("${cloudinary.cloud-name}")
+    private String cloudName;
+
+    @Value("${cloudinary.api-key}")
+    private String apiKey;
+
+    @Value("${cloudinary.api-secret}")
+    private String apiSecret;
+
     @Bean
     public Cloudinary cloudinary() {
         return new Cloudinary(Map.of(
-                "cloud_name", "dljuhk5cj",
-                "api_key", "875966687349429",
-                "api_secret", "N8E94I5DXsU07kvBE5Q8E1lWiGM"
+                "cloud_name", cloudName,
+                "api_key",    apiKey,
+                "api_secret", apiSecret
         ));
     }
 }
